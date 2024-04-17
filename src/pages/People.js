@@ -5,3 +5,5 @@ function People() {
 }
 
 export default People;
+
+//https://swapi.dev/api/people/
