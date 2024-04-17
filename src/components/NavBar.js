@@ -11,7 +11,7 @@ function NavBar() {
       p="20px"
       alignItems="center"
     >
-      <Text fontSize="5xl" mb="10px" color="white" fontWeight="500">
+      <Text fontSize="5xl" mb="10px" color="yellow" fontWeight="500">
         Star War
       </Text>
       <HStack spacing={3}>

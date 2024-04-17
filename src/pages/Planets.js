@@ -1,22 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import React, { useState } from "react";
 import Planet from "../components/Planet";
 import { Heading, Box } from "@chakra-ui/react";
+import Pagination from "../components/Pagination";
 
-const fetchPlanets = async () => {
-  const res = await fetch("https://swapi.dev/api/planets/");
+const fetchPlanets = async (page) => {
+  console.log(page);
+  const res = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
   return res.json();
 };
 
 function Planets() {
-  const { data, status } = useQuery({
-    queryKey: ["planets"],
-    queryFn: fetchPlanets,
+  const [page, setPage] = useState(1);
+  const { data, status, isPlaceholderData } = useQuery({
+    queryKey: ["planets", page],
+    queryFn: () => fetchPlanets(page),
+    placeholderData: keepPreviousData,
   });
-  console.log(data?.results);
+  console.log(data);
   return (
     <Box w="100%" px="10px" mt="10px">
-      <Heading size="lg" color="white">
+      <Pagination props={{ page, setPage, data, isPlaceholderData }} />
+      <Heading size="lg" color="yellow">
         Planets
       </Heading>
       {status === "pending" ? <div>loading...</div> : null}
