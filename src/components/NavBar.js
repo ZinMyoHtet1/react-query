@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Text, HStack, Button } from "@chakra-ui/react";
+import { Box, Text, HStack } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -15,12 +16,12 @@ function NavBar() {
         Star War
       </Text>
       <HStack spacing={3}>
-        <Button as="a" href="/">
+        <NavLink className="link-button" to="/">
           Planets
-        </Button>
-        <Button as="a" href="/people">
+        </NavLink>
+        <NavLink className="link-button" to="/people">
           People
-        </Button>
+        </NavLink>
       </HStack>
     </Box>
   );
