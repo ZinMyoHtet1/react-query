@@ -5,7 +5,6 @@ import { Heading, Box } from "@chakra-ui/react";
 import Pagination from "../components/Pagination";
 
 const fetchPlanets = async (page) => {
-  console.log(page);
   const res = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
   return res.json();
 };
@@ -17,7 +16,6 @@ function Planets() {
     queryFn: () => fetchPlanets(page),
     placeholderData: keepPreviousData,
   });
-  console.log(data);
   return (
     <Box w="100%" px="10px" mt="10px">
       <Pagination props={{ page, setPage, data, isPlaceholderData }} />

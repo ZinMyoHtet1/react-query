@@ -16,7 +16,6 @@ function People() {
     queryFn: () => fetchPeople(page),
     placeholderData: keepPreviousData,
   });
-  console.log(data?.results);
   return (
     <Box w="100%" px="10px" mt="10px">
       <Pagination props={{ page, setPage, data, isPlaceholderData }} />

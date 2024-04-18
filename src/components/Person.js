@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 function Person(people) {
-  console.log(people);
   return (
     <SimpleGrid column="4" gap="10px" minChildWidth="250px">
       {people.people.map((person, index) => (
